@@ -60,8 +60,21 @@ def get_lora_target_modules():
     
     return target_modules
 
-# Step 6 - attach_lora_adapters (not yet solved)
-# TODO: implement
+# Step 6 - attach_lora_adapters
+from unsloth import FastLanguageModel
+def attach_lora_adapters(model, r=8, lora_alpha=16, target_modules=None):
+    """Wrap the base model with LoRA adapters and return the PEFT model."""
+    # TODO: wrap `model` with LoRA via FastLanguageModel.get_peft_model using r, lora_alpha, target_modules
+    if target_modules is None:
+        target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"]
+    
+    return FastLanguageModel.get_peft_model(
+        model,
+        r = r,
+        lora_alpha = lora_alpha,
+        target_modules = target_modules
+
+    )
 
 # Step 7 - count_trainable_parameters (not yet solved)
 # TODO: implement
