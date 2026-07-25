@@ -90,8 +90,25 @@ def trainable_fraction(trainable_count, total_count):
    trainable_fraction = trainable_count / total_count
    return(trainable_fraction)
 
-# Step 9 - build_instruction_examples (not yet solved)
-# TODO: implement
+# Step 9 - build_instruction_examples
+def build_instruction_examples():
+    """Return a small list of {'instruction', 'response'} dicts for SFT."""
+    # TODO: return a tiny hand-written list of instruction/response example dicts.
+    
+    return [
+        {
+            "instruction": "What is machine learning?",
+            "response": "Machine learning is a field of AI where models learn patterns from data."
+        },
+        {
+            "instruction": "Translate 'Hello' to French.",
+            "response": "Bonjour"
+        },
+        {
+            "instruction": "Summarize the benefits of exercise.",
+            "response": "Regular exercise improves cardiovascular health, strength, and mental well-being."
+        }
+    ]
 
 # Step 10 - format_instruction_example (not yet solved)
 # TODO: implement
