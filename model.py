@@ -119,8 +119,10 @@ def format_instruction_example(example):
         f"### Response:\n{example['response']}"
     )
 
-# Step 11 - format_all_examples (not yet solved)
-# TODO: implement
+# Step 11 - format_all_examples
+def format_all_examples(examples):
+    """Format each instruction/response dict into a training string."""
+    return [format_instruction_example(example) for example in examples]
 
 # Step 12 - build_text_dataset (not yet solved)
 # TODO: implement
