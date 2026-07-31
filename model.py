@@ -178,8 +178,17 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
 
     return trainer
 
-# Step 17 - run_sft_training (not yet solved)
-# TODO: implement
+# Step 17 - run_sft_training
+def run_sft_training(trainer):
+    """Run a few SFT steps and return the final training loss as a float."""
+
+    # Disable features that may trigger multiprocessing/checkpointing
+    trainer.args.dataloader_num_workers = 0
+    trainer.args.report_to = []
+    trainer.args.save_strategy = "no"
+
+    train_result = trainer.train()
+    return float(train_result.training_loss)
 
 # Step 18 - switch_to_inference_mode (not yet solved)
 # TODO: implement
